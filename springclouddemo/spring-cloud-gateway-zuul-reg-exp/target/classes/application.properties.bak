@@ -1,0 +1,17 @@
+server.port=7700
+spring.application.name=spring-cloud-gateway-zuul
+
+eureka.client.service-url.defaultZone=http://user:password123@localhost:6600/eureka
+eureka.instance.prefer-ip-address=true
+
+zuul.ignoredServices=spring-cloud-movie-ribbon-hystrix
+#zuul.routes.spring-cloud-user=/myusers/**
+
+#To get more fine-grained control over a route you can specify the path and the serviceId independently:
+#zuul.routes.aabbcc.path=/user-path/**
+#zuul.routes.aabbcc.serviceId=spring-cloud-user
+
+
+#The location of the backend can be specified as either a "serviceId" (for a service from discovery) or a "url" (for a physical location), e.g.
+zuul.routes.aabbcc.path=/user-url/**
+zuul.routes.aabbcc.url= http://192.168.199.224:6601
